@@ -1,0 +1,14 @@
+name: 'kamehameha'
+description: 'jsut some test'
+author: 'Cris'
+inputs:
+  token:
+    required: true
+  working-directory:
+    description: fadfdsfsdfdsf
+    required: false
+runs:
+  using: 'composite'
+  steps: 
+    - run: sh test/run-test.sh
+      shell: bash
