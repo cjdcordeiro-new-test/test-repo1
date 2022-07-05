@@ -10,9 +10,9 @@ inputs:
 runs:
   using: 'composite'
   steps: 
-    - run: cat run-test.sh
+    - run: cat r/test/run-test.sh
       shell: bash
-    - run: chmod +x run-test.sh
+    - run: chmod +x r/test/run-test.sh
       shell: bash
-    - run: ./run-test.sh
+    - run: ./r/test/run-test.sh
       shell: bash
