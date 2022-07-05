@@ -10,6 +10,8 @@ inputs:
 runs:
   using: 'composite'
   steps: 
+    - run: ls && pwd
+      shell: bash
     - run: cat r/test/run-test.sh
       shell: bash
     - run: chmod +x r/test/run-test.sh
