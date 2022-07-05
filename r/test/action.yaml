@@ -12,9 +12,9 @@ runs:
   steps: 
     - run: ls && pwd
       shell: bash
-    - run: cat r/test/run-test.sh
+    - run: cat foo/r/test/run-test.sh
       shell: bash
-    - run: chmod +x r/test/run-test.sh
+    - run: chmod +x foo/r/test/run-test.sh
       shell: bash
-    - run: ./r/test/run-test.sh
+    - run: ./foo/r/test/run-test.sh
       shell: bash
