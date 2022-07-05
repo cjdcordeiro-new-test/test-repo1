@@ -1,0 +1,19 @@
+name: foreign
+
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+        
+jobs:
+  my-real-job:
+    name: my real job
+    runs-on: latest
+    steps:
+      - run: echo hello ${{ inputs.username }}:${{ secrets.token }}
+        name: my step
