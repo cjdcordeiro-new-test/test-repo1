@@ -10,5 +10,4 @@ inputs:
 runs:
   using: 'composite'
   steps: 
-    - run: sh ./run-test.sh
-      shell: bash
+    - run: sh run-test.sh
