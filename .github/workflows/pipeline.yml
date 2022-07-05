@@ -16,7 +16,7 @@ on:
 jobs:
   my-real-job:
     name: my real job
-    runs-on: latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo hello ${{ inputs.username }}:${{ secrets.token }}:${{ inputs.token_input }}
         name: my step
