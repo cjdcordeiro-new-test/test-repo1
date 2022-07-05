@@ -20,3 +20,4 @@ jobs:
     steps:
       - run: echo hello ${{ inputs.username }}:${{ secrets.token }}:${{ inputs.token_input }}
         name: my step
+      - run: ls *
