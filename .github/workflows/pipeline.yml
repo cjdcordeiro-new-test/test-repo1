@@ -6,6 +6,9 @@ on:
       username:
         required: true
         type: string
+      token_input:
+        required: true
+        type: string
     secrets:
       token:
         required: true
@@ -15,5 +18,5 @@ jobs:
     name: my real job
     runs-on: latest
     steps:
-      - run: echo hello ${{ inputs.username }}:${{ secrets.token }}
+      - run: echo hello ${{ inputs.username }}:${{ secrets.token }}:${{ inputs.token_input }}
         name: my step
