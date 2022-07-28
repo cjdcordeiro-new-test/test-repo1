@@ -1,5 +1,5 @@
 name: mock-one  # a folder with this name must exist at the project's root
-version: 1.0.1  
+version: 1.0.1 
 base: 22.10     # Dockerfile.22.10 must exist in the above folder
 platforms:
   amd64:
