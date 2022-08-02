@@ -10,4 +10,4 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - run: echo ls > /usr/local/bin/cpc-build-tools.oci-registry-upload
       - run: chmod +x /usr/local/bin/cpc-build-tools.oci-registry-upload
-      - run: cpc-build-tools.oci-registry-upload -l
+      - run: cpc-build-tools.oci-registry-upload -l / 
