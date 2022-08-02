@@ -8,14 +8,6 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Create a new GitHub Discussion
-        id: create-discussion
-        uses: abirismyname/create-discussion@v1.x
-        env:
-          GH_TOKEN: ${{ github.token }}      
-        with:
-          title: Release test
-          body: |
-            Let's talk! new release here
-          repository-id: ${{ github.repository }}
-          category-id: "Announcements"  
+      - run: echo ls > /usr/local/bin/cpc-build-tools.oci-registry-upload
+      - run: chmod +x /usr/local/bin/cpc-build-tools.oci-registry-upload
+      - run: cpc-build-tools.oci-registry-upload -l
