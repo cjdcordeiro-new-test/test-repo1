@@ -8,5 +8,11 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - run: sudo snap install --edge --classic rockcraft
-      - run: snapcraft
+      - id: x
+        run: |
+          set -x
+          a=()
+          a+=( $(echo a,b,c,d,e,v,f,g,q | awk -F"," '{print $2":"$7}') )
+          a+=( $(echo 1,2,3,4,5,6,7,78 | awk -F"," '{print $2":"$7}') )
+          echo "::set-output name=published::\"${a[@]}\""
+      - run: echo ${{ steps.x.outputs.published }}
