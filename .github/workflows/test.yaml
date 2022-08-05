@@ -17,3 +17,15 @@ jobs:
           a+=( $(echo g,adqwe-qwe,1,1,1,1,dasD_sad_,_asd12_ff_f,1 | awk -F"," '{print $2":"$7}') )
           echo "::set-output name=published::${a[@]}"
       - run: echo ${{ steps.x.outputs.published }}
+      - uses: maxkomarychev/oction-create-issue@v0.7.1
+        id: my_step_id
+        with:
+          token: ${{ github.token }}
+          title: "[asdasd  ${{ steps.x.outputs.published }}] -11"
+          repo: ${{ github.repository }}
+          body: |
+           # title
+           this is ${{ steps.x.outputs.published }}
+           ---
+           ## finish
+          labels: announcement
