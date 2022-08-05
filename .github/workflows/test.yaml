@@ -22,7 +22,7 @@ jobs:
         with:
           token: ${{ github.token }}
           title: "[asdasd  ${{ steps.x.outputs.published }}] -11"
-          repo: ${{ github.repository }}
+          repo: test-repo1
           body: |
            # title
            this is ${{ steps.x.outputs.published }}
