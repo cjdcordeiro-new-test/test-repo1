@@ -29,3 +29,6 @@ jobs:
            ---
            ## finish
           labels: announcement
+      - run: |
+          echo ${{ steps.my_step_id.outputs.id }}
+          echo ${{ steps.my_step_id.outputs.number }}
