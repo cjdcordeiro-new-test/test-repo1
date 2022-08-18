@@ -1,10 +1,39 @@
 name: GitHub Actions Demo
-on: [push]
+on: 
+  schedule:
+    - cron: "* * * * *"
+  push:
+    branches:
+      - remote/branch
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.action }} - ${{ github.action_ref }} - ${{ github.job }} - ${{ github.workflow }}
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      
+      - id: x
+        run: |
+          set -x
+          a=()
+          a+=( $(echo a,b,c,d,e,v,f,g,q | awk -F"," '{print $2":"$7}') )
+          a+=( $(echo 1,2,3,4,5,6,7,78 | awk -F"," '{print $2":"$7}') )
+          a+=( $(echo g,adqwe-qwe,1,1,1,1,dasD_sad_,_asd12_ff_f,1 | awk -F"," '{print $2":"$7}') )
+          echo "::set-output name=published::${a[@]}"
+      - run: echo ${{ steps.x.outputs.published }}
+      - uses: maxkomarychev/oction-create-issue@v0.7.1
+        id: my_step_id
+        with:
+          token: ${{ github.token }}
+          title: "[asdasd  ${{ steps.x.outputs.published }}] -11"
+          repo: test-repo1
+          body: |
+           # title
+           this is ${{ steps.x.outputs.published }}
+           ---
+           ## finish
+          labels: announcement
+      - run: |
+          echo ${{ steps.my_step_id.outputs.id }}
+          echo ${{ steps.my_step_id.outputs.number }}
